@@ -1,3 +1,4 @@
+/* General body styling */
 body {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -9,47 +10,22 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-image: url("../images/schale.jpg"); /* Corrected path to your image */
-  background-repeat: no-repeat; /* Prevent the image from repeating */
-  background-position: center; /* Center the image */
-  background-size: cover; /* Scale the image to cover the entire viewport */
-  background-attachment: fixed; /* Keep the image fixed during scrolling (optional) */
-  margin: 0;
+  background-image: url("../images/schale.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-@media (max-width: 768px) {
-  .loading-icon {
-    width: 150px;
-    height: 150px;
-  }
-}
-
-@media (max-width: 900px) {
-  .loading-icon {
-    width: 200px;
-    height: 200px;
-  }
-}
-
-@media (max-width: 1200px) {
-  .loading-icon {
-    width: 300px;
-    height: 300px;
-  }
-}
-
+/* Logo styling */
 header {
-  text-align: center;
-  margin-bottom: 20px; /* Space between the logo and the buttons */
+  width: 100%; /* Ensure the header spans the full width */
+  text-align: center; /* Center the content */
+  margin-bottom: 20px;
 }
 
 header .logo {
-  max-width: 100%;
+  max-width: 80%; /* Adaptive width */
   height: auto;
 }
 
@@ -58,19 +34,58 @@ header .logo {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 40px; /* Space between buttons */
+  gap: 30px; /* Adjust vertical spacing between buttons */
+  width: 100%; /* Ensure the buttons container scales */
+  text-align: center; /* Center-align the buttons */
 }
 
-
-/* Stretched button container */
-.button-container {
-  border-radius: 15px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+/* Button images styling */
+.button-container a img {
+  width: 70%; /* Scale images to fill container width */
+  max-width: 500px; /* Allow images to stretch if needed */
+  height: auto;
+  border-radius: 0; /* Remove border radius to ensure edges touch */
+  box-shadow: none; /* Remove shadow if you want images to be flush */
+  margin: 0; /* Eliminate any external margins on images */
 }
 
-.playbtn {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  position: absolute;
+/* Laptop (max-width: 1024px) */
+@media (max-width: 1024px) {
+  header .logo {
+    max-width: 70%; /* Adjust logo size for laptops */
+  }
+
+  .button-container {
+    gap: 25px; /* Reduce gap for laptops */
+  }
+
+  .button-container a img {
+    max-width: 450px; /* Limit button width */
+  }
+}
+
+/* Tablet (max-width: 768px) */
+@media (max-width: 768px) {
+  header .logo {
+    max-width: 65%; /* Adjust logo size for tablets */
+  }
+
+  .button-container {
+    gap: 20px; /* Further reduce gap for smaller screens */
+  }
+
+  .button-container a img {
+    max-width: 400px; /* Smaller button width for tablets */
+  }
+}
+
+/* Mobile (max-width: 576px) */
+@media (max-width: 576px) {
+  header .logo {
+    max-width: 80%; /* Slightly larger logo for small devices */
+  }
+
+  .button-container a img {
+    max-width: 300px; /* Even smaller button width for mobile */
+  }
 }

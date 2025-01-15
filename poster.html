@@ -20,7 +20,7 @@
         </header>
         <main>
             <div class="d-flex align-items-center" style="gap: 20px; padding-left: 40px;">
-                <a id="about-button" href="index.html">
+                <a id="back-button" href="index.html">
                     <img src="images/backbutton.png" alt="Back" style="max-height: 80px; padding-left:60px; margin-top:30px;"  />
                 </a>
                 <h1 class="posterheading">Posters</h1>
@@ -35,6 +35,21 @@
 
             </div>
             
+
+            <audio autoplay hidden>
+                <source src="/audio/ブルーアーカイブ Blue Archive OST 113. Usagi Flap.mp3" type="audio/mp3">
+               
+            </audio>
+
+            <script>
+                window.addEventListener('load', function() {
+                    var audio = document.getElementById('audio');
+                    audio.play().catch(function(error) {
+                        // Handle errors (e.g., if autoplay fails)
+                        console.log("Autoplay failed:", error);
+                    });
+                });
+            </script>
         </main>
         <footer>
             <!-- place footer here -->

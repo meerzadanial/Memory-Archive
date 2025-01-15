@@ -54,6 +54,16 @@
                     </div>
                 </div>
             </section>
+
+            <script>
+                window.addEventListener('load', function() {
+                    var audio = document.getElementById('audio');
+                    audio.play().catch(function(error) {
+                        // Handle errors (e.g., if autoplay fails)
+                        console.log("Autoplay failed:", error);
+                    });
+                });
+            </script>
         </main>
         <footer>
             <!-- place footer here -->

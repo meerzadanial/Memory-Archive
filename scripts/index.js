@@ -1,9 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const landingPage = document.getElementById("landing-page");
     const aboutButton = document.getElementById("about-button");
     const posterButton = document.getElementById("poster-button");
     const adsButton = document.getElementById("ads-button");
-    const playButtonContainer = document.querySelector(".play-button-container");
+    
 
 
         aboutButton.addEventListener('click', function (event) {

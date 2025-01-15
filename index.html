@@ -23,15 +23,15 @@
                     <div class="col-md-6">
                         <div class="button-container">
                             <a id="about-button" href="about.html">
-                                <img src="images/holderbutton.jpg" alt="About" width="500" height="80" style="padding-left: 40px;" />
+                                <img src="images/holderbutton.png" alt="About" width="500" height="80" style="padding-left: 40px;" />
                             </a>
                         
                             <a id="poster-button" href="poster.html">
-                                <img src="images/posterbutton.jpg" alt="Poster" width="500" height="80" style="padding-left: 40px;" />
+                                <img src="images/posterbutton.png" alt="Poster" width="500" height="80" style="padding-left: 40px;" />
                             </a>
                         
                             <a id="ads-button" href="ads.html">
-                                <img src="images/adsbutton.jpg" alt="Ads" width="500" height="80" style="padding-left: 40px;" />
+                                <img src="images/adsbutton.png" alt="Ads" width="500" height="80" style="padding-left: 40px;" />
                             </a>
                         </div>
                     </div>
@@ -39,6 +39,26 @@
             </div>
         </main>
     </div>
+
+    <!-- Audio autoload when page is open  -->
+
+
+    <audio autoplay hidden>
+        <source src="/audio/ブルーアーカイブ Blue Archive OST 113. Usagi Flap.mp3" type="audio/mp3">
+       
+    </audio>
+    
+    
     </main>
+
+    <script>
+        window.addEventListener('load', function() {
+            var audio = document.getElementById('audio');
+            audio.play().catch(function(error) {
+                // Handle errors (e.g., if autoplay fails)
+                console.log("Autoplay failed:", error);
+            });
+        });
+    </script>
 </body>
 </html>
