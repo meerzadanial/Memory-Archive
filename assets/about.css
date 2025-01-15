@@ -95,24 +95,24 @@ body {
   
   @media (max-width: 480px) {
     .about {
-      font-size: large; /* Further reduce title size for very small screens */
-      margin: 10px;
+        font-size: xx-large; /* Increase title size on very small screens */
+        margin: 10px;
     }
   
     .card {
-      width: 100%; /* Full width for very small screens */
-      padding: 10px; /* Adjust padding */
+        width: 100%; /* Full width for very small screens */
+        padding: 10px; /* Adjust padding */
     }
   
     .card img {
-      height: 80px;
-      width: 80px;
+        height: 80px;
+        width: 80px;
     }
   
     .card h3 {
-      font-size: 1.2rem; /* Reduce heading size */
+        font-size: 1.2rem; /* Reduce heading size */
     }
-  }
+}
   
   .audio-player {
     display: flex;
