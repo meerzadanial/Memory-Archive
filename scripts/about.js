@@ -1,31 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const aboutButton = document.getElementById("about-button");
-    const posterButton = document.getElementById("poster-button");
-    const adsButton = document.getElementById("ads-button");
+     // Attach event listeners to audio control buttons
+      const playButton = document.querySelector('.play-button');
+      const pauseButton = document.querySelector('.pause-button');
+      const muteButton = document.querySelector('.mute-button');
+      const replayButton = document.querySelector('.replay-button');
 
-    // Attach event listeners to audio control buttons
-    const playButton = document.querySelector('.play-button');
-    const pauseButton = document.querySelector('.pause-button');
-    const muteButton = document.querySelector('.mute-button');
-    const replayButton = document.querySelector('.replay-button');
-
-    // Event listeners for buttons on the landing page
-    aboutButton.addEventListener('click', function (event) {
-        event.preventDefault();
-        window.location.href = aboutButton.href;
-    });
-
-    posterButton.addEventListener('click', function (event) {
-        event.preventDefault();
-        window.location.href = posterButton.href;
-    });
-
-    adsButton.addEventListener('click', function (event) {
-        event.preventDefault();
-        window.location.href = adsButton.href;
-    });
-
-    // Audio player functions
+   // Audio player functions
     const audio = document.getElementById('audio');
 
     // Restore audio state from localStorage

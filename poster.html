@@ -11,6 +11,7 @@
 
         <!-- Bootstrap CSS v5.2.1 -->
         <link href="assets/poster.css" rel="stylesheet">
+        <script defer src="/scripts/poster.js"></script>
         <link rel="icon" href="images/miaw.jpg" type="image/svg+xml" >
     </head>
 
@@ -36,20 +37,18 @@
             </div>
             
 
-            <audio autoplay hidden>
-                <source src="/audio/ブルーアーカイブ Blue Archive OST 113. Usagi Flap.mp3" type="audio/mp3">
-               
-            </audio>
-
-            <!-- <script>
-                window.addEventListener('load', function() {
-                    var audio = document.getElementById('audio');
-                    audio.play().catch(function(error) {
-                        // Handle errors (e.g., if autoplay fails)
-                        console.log("Autoplay failed:", error);
-                    });
-                });
-            </script> -->
+            <!-- Audio autoload when page is open  -->
+            <div class="audio-player">
+                <audio id="audio" autoplay muted>
+                    <source src="/audio/ブルーアーカイブ Blue Archive OST 113. Usagi Flap.mp3" type="audio/mp3">
+                </audio>
+                <div class="custom-controls">
+                    <img src="/images/playbutton.png" alt="Play" class="control-button play-button" />
+                    <img src="/images/pausebutton.png" alt="Pause" class="control-button pause-button" />
+                    <img src="/images/mutebutton.png" alt="Mute" class="control-button mute-button"/>
+                    <img src="/images/replaybutton.png" alt="Replay" class="control-button replay-button" />
+                </div>
+            </div>
         </main>
         <footer>
             <!-- place footer here -->

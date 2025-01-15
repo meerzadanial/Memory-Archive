@@ -8,6 +8,7 @@
 
         <!-- Bootstrap CSS v5.2.1 -->
         <link href="assets/about.css" rel="stylesheet" />
+        <script defer src="/scripts/about.js"></script>
         <link rel="icon" href="images/miaw.jpg" type="image/svg+xml" />
         
     </head>
@@ -30,7 +31,7 @@
                         <img src="images/yusra.jpg" alt="Yusra" />
                         <h3>Muhammad Yusra bin Yusmizal</h3>
                         <ul>
-                            <li>Matric Num - 2024699398</li>
+                            <li>Matric ID - 2024699398</li>
                             <li>To Become a Better and Positive Person</li>
                         </ul>
                     </div>
@@ -39,7 +40,7 @@
                         <img src="images/me.jpg" alt="John" />
                         <h3>Mohammad Meerza Danial</h3>
                         <ul>
-                            <li>Matric Num - 2024699398</li>
+                            <li>Matric ID - 2024699398</li>
                             <li>Certified Arcade Rhythm Game Addict </li>
                         </ul>
                     </div>
@@ -48,22 +49,13 @@
                         <img src="images/jan.jpg" alt="Sarah" />
                         <h3>Hamizan bin Yahaya</h3>
                         <ul>
-                            <li>Matric Num - 2024266068 </li>
+                            <li>Matric ID - 2024266068 </li>
                             <li>Very Hardworking and Cheerful Man in My Own Business</li>
                         </ul>
                     </div>
                 </div>
             </section>
 
-            <!-- <script>
-                window.addEventListener('load', function() {
-                    var audio = document.getElementById('audio');
-                    audio.play().catch(function(error) {
-                        // Handle errors (e.g., if autoplay fails)
-                        console.log("Autoplay failed:", error);
-                    });
-                });
-            </script> -->
         </main>
         <footer>
             <!-- place footer here -->
@@ -79,5 +71,20 @@
             integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
             crossorigin="anonymous"
         ></script>
+
+        
     </body>
+
+          <!-- Audio autoload when page is open  -->
+          <div class="audio-player" style="flex: content;">
+            <audio id="audio" autoplay muted>
+                <source src="/audio/ブルーアーカイブ Blue Archive OST 113. Usagi Flap.mp3" type="audio/mp3">
+            </audio>
+            <div class="custom-controls">
+                <img src="/images/playbutton.png" alt="Play" class="control-button play-button" />
+                <img src="/images/pausebutton.png" alt="Pause" class="control-button pause-button" />
+                <img src="/images/mutebutton.png" alt="Mute" class="control-button mute-button"/>
+                <img src="/images/replaybutton.png" alt="Replay" class="control-button replay-button" />
+            </div>
+        </div>
 </html>

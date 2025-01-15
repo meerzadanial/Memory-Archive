@@ -1,5 +1,5 @@
 /* General Styles */
-* {
+body{
   background-image: url("../images/schale.jpg");
   background-repeat: no-repeat;
   background-position: center;
@@ -50,5 +50,43 @@
   }
   .poster_1, .poster_2, .poster_3 {
       margin: 30px; /* Adjust margin for smaller screens */
+  }
+}
+
+.audio-player {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #b9d8eb;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  position: absolute;  /* Position relative to the nearest positioned ancestor */
+  top: 40px;  /* 30px from the top */
+  right: 90px;  /* 30px from the right */
+  z-index: 10;  /* Ensure it stays on top of other content */
+}
+
+.custom-controls {
+  display: flex;
+  gap: 10px;
+}
+
+.control-button {
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  transition: all 0.3s;
+}
+
+.control-button:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 576px) {
+  .audio-player {
+    top: auto;  /* Remove top positioning */
+    bottom: none;  /* 30px from the bottom */
+    right: 15px;  /* 30px from the right */
   }
 }
