@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const pauseButton = document.querySelector('.pause-button');
     const muteButton = document.querySelector('.mute-button');
     const replayButton = document.querySelector('.replay-button');
+    const shuffleButton = document.querySelector('.shuffle-button');
 
     // Event listeners for buttons on the landing page
     aboutButton.addEventListener('click', function (event) {
@@ -96,4 +97,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Restart audio
     replayButton.addEventListener('click', restartAudio);
+
+    // Array of audio files
+    const audioFiles = [
+        "ブルーアーカイブ Blue Archive OST 113. Usagi Flap.mp3",
+        "ブルーアーカイブ Blue Archive OST 1. Constant Moderato.mp3",
+        "ブルーアーカイブ Blue Archive OST 59.mp3",
+        "ブルーアーカイブ Blue Archive OST 11. Connected Sky.mp3" // Add your song file names here
+    ];
+
+    // Function to pick a random song from the array
+    function shuffleAndPlay() {
+        const randomSong = audioFiles[Math.floor(Math.random() * audioFiles.length)];
+        audio.src = `audio/${randomSong}`;
+        audio.play(); // Start playing the shuffled song
+    }
+
+    // Shuffle button functionality
+    shuffleButton.addEventListener('click', shuffleAndPlay);
+
+    // Initially pick a random song
+    shuffleAndPlay();
 });
