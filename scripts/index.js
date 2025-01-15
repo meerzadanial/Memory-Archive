@@ -88,6 +88,16 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.setItem('audioMuted', audio.muted);
     });
 
+    // Shuffle the next song after the current one ends
+    audio.addEventListener('ended', () => {
+        const randomIndex = Math.floor(Math.random() * audioFiles.length);
+        const randomSong = audioFiles[randomIndex];
+        audio.src = `audio/${randomSong.file}`;
+        songTitleElement.textContent = randomSong.title;
+        localStorage.setItem('currentSongIndex', randomIndex); // Save the new current song index
+        audio.play(); // Start playing the new song
+    });
+
     // Toggle play/pause
     function togglePlay() {
         if (audio.paused) {
