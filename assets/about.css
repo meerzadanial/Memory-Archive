@@ -144,6 +144,20 @@ body {
     opacity: 0.8;
   }
 
+
+  .song-title-container {
+    margin-top: 15px; /* Space between the buttons and the title */
+    display: flex;
+    justify-content: center; /* Center-align the title */
+    
+  }
+  
+  .song-title {
+    font-size: 16px; /* Adjust the font size */
+    color: #333; /* Set the text color */
+    text-align: center;
+  }
+
   @media (max-width: 576px) {
     .audio-player {
       top: auto;  /* Remove top positioning */

@@ -1,44 +1,43 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const aboutButton = document.getElementById("about-button");
-    const posterButton = document.getElementById("poster-button");
-    const adsButton = document.getElementById("ads-button");
-
-    // Attach event listeners to audio control buttons
     const playButton = document.querySelector('.play-button');
     const pauseButton = document.querySelector('.pause-button');
     const muteButton = document.querySelector('.mute-button');
     const replayButton = document.querySelector('.replay-button');
-    const shuffleButton = document.querySelector('.shuffle-button');
 
-    // Event listeners for buttons on the landing page
-    aboutButton.addEventListener('click', function (event) {
-        event.preventDefault();
-        window.location.href = aboutButton.href;
-    });
-
-    posterButton.addEventListener('click', function (event) {
-        event.preventDefault();
-        window.location.href = posterButton.href;
-    });
-
-    adsButton.addEventListener('click', function (event) {
-        event.preventDefault();
-        window.location.href = adsButton.href;
-    });
-
-    // Audio player functions
     const audio = document.getElementById('audio');
+    const songTitleElement = document.getElementById('song-title'); // Song title element
+
+    // Array of audio files with titles
+    const audioFiles = [
+        { file: "ブルーアーカイブ Blue Archive OST 113. Usagi Flap.mp3", title: "Usagi Flap" },
+        { file: "ブルーアーカイブ Blue Archive OST 1. Constant Moderato.mp3", title: "Constant Moderato" },
+        { file: "ブルーアーカイブ Blue Archive OST 59.mp3", title: "RE Aoharu" },
+        { file: "ブルーアーカイブ Blue Archive OST 11. Connected Sky.mp3", title: "Connected Sky" }
+    ];
 
     // Restore audio state from localStorage
     const savedAudioTime = localStorage.getItem('audioTime');
     const isMuted = localStorage.getItem('audioMuted') === 'true';
     const isPlaying = localStorage.getItem('audioPlaying') === 'true';
+    const savedSongIndex = parseInt(localStorage.getItem('currentSongIndex'), 10); // Last played song index
 
+    // Check if the song is already set in localStorage (i.e., the user played a song before)
+    if (!isNaN(savedSongIndex)) {
+        // If there's a saved song, don't shuffle, just load and play the saved song
+        const savedSong = audioFiles[savedSongIndex];
+        audio.src = `audio/${savedSong.file}`;
+        songTitleElement.textContent = savedSong.title;
+    } else {
+        // If no song is saved, shuffle and play a random song
+        shuffleAndPlay();
+    }
+
+    // Restore the time position and other states
     if (savedAudioTime) {
         audio.currentTime = savedAudioTime;
     }
 
-    // Set the mute state based on localStorage (Don't mute automatically on load)
+    // Set the mute state based on localStorage
     if (isMuted) {
         audio.muted = true;
     }
@@ -64,58 +63,39 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     audio.addEventListener('volumechange', () => {
-        localStorage.setItem('audioMuted', audio.muted);
+        localStorage.setItem('audioMuted', audio.muted); // Save mute state
     });
 
-    // Toggle play/pause
-    function togglePlay() {
-        if (audio.paused) {
-            audio.play();
-        } else {
-            audio.pause();
-        }
-    }
-
-    // Toggle mute
-    function toggleMute() {
-        audio.muted = !audio.muted;
-        localStorage.setItem('audioMuted', audio.muted); // Save mute state
-    }
-
-    // Restart the audio
-    function restartAudio() {
-        audio.currentTime = 0; // Reset to the beginning
-        audio.play(); // Start playing again
-    }
-
-    // Toggle between play and pause
-    playButton.addEventListener('click', togglePlay);
-    pauseButton.addEventListener('click', togglePlay);
-
-    // Toggle mute
-    muteButton.addEventListener('click', toggleMute);
-
-    // Restart audio
-    replayButton.addEventListener('click', restartAudio);
-
-    // Array of audio files
-    const audioFiles = [
-        "ブルーアーカイブ Blue Archive OST 113. Usagi Flap.mp3",
-        "ブルーアーカイブ Blue Archive OST 1. Constant Moderato.mp3",
-        "ブルーアーカイブ Blue Archive OST 59.mp3",
-        "ブルーアーカイブ Blue Archive OST 11. Connected Sky.mp3" // Add your song file names here
-    ];
-
-    // Function to pick a random song from the array
+    // Function to pick a random song from the array and play it
     function shuffleAndPlay() {
         const randomSong = audioFiles[Math.floor(Math.random() * audioFiles.length)];
-        audio.src = `audio/${randomSong}`;
+        audio.src = `audio/${randomSong.file}`;
+        songTitleElement.textContent = randomSong.title; // Update the title
+        localStorage.setItem('currentSongIndex', audioFiles.indexOf(randomSong)); // Save the current song index
         audio.play(); // Start playing the shuffled song
     }
 
-    // Shuffle button functionality
-    shuffleButton.addEventListener('click', shuffleAndPlay);
+    // Event listener to play the next random song after the current one ends
+    audio.addEventListener('ended', () => {
+        shuffleAndPlay(); // Automatically pick and play a new random song
+    });
 
-    // Initially pick a random song
-    shuffleAndPlay();
+    // Attach event listeners to buttons
+    playButton.addEventListener('click', () => {
+        audio.play();
+    });
+
+    pauseButton.addEventListener('click', () => {
+        audio.pause();
+    });
+
+    muteButton.addEventListener('click', () => {
+        audio.muted = !audio.muted;
+        localStorage.setItem('audioMuted', audio.muted); // Save mute state
+    });
+
+    replayButton.addEventListener('click', () => {
+        audio.currentTime = 0; // Reset to the beginning
+        audio.play(); // Start playing again
+    });
 });

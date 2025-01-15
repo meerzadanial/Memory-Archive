@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="assets/index.css" rel="stylesheet" >
+    <link href="assets/index.css" rel="stylesheet">
     <script defer src="scripts/index.js"></script>
-    <link rel="icon" href="images/miaw.jpg" type="image/svg+xml" >
+    <link rel="icon" href="images/miaw.jpg" type="image/svg+xml">
     <title>Memory Archive</title>
 </head>
 <body>
@@ -13,7 +13,7 @@
     <!-- Landing Page Section -->
     <div id="landing-page">
         <header>
-            <img src="images/memoryarchive.png" alt="Memory Archive" class="logo" >
+            <img src="images/memoryarchive.png" alt="Memory Archive" class="logo">
         </header>
     
         <main>
@@ -39,17 +39,21 @@
         </main>
     </div>
 
-    <!-- Audio autoload when page is open  -->
+    <!-- Audio autoload when page is open -->
     <div class="audio-player">
-        <audio id="audio" autoplay muted>
+        <audio id="audio" autoplay>
             <!-- The source will be dynamically set via JavaScript -->
         </audio>
         <div class="custom-controls">
-            <img src="images/playbutton.png" alt="Play" class="control-button play-button" />
-            <img src="images/pausebutton.png" alt="Pause" class="control-button pause-button" />
-            <img src="images/mutebutton.png" alt="Mute" class="control-button mute-button"/>
-            <img src="images/replaybutton.png" alt="Replay" class="control-button replay-button" />
-            <img src="images/shuffle.png" alt="Shuffle" class="control-button shuffle-button" />
+            <div class="buttons-container">
+                <img src="images/playbutton.png" alt="Play" class="control-button play-button" />
+                <img src="images/pausebutton.png" alt="Pause" class="control-button pause-button" />
+                <img src="images/mutebutton.png" alt="Mute" class="control-button mute-button"/>
+                <img src="images/replaybutton.png" alt="Replay" class="control-button replay-button" />
+                <div class="song-title-container">
+                    <span id="song-title" class="song-title">Song Title</span>
+                </div>
+            </div>
         </div>
     </div>
 
