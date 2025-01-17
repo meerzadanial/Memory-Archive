@@ -9,10 +9,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Array of audio files with titles
     const audioFiles = [
-        { file: "ブルーアーカイブ Blue Archive OST 113. Usagi Flap.mp3", title: "Usagi Flap" },
-        { file: "ブルーアーカイブ Blue Archive OST 1. Constant Moderato.mp3", title: "Constant Moderato" },
-        { file: "ブルーアーカイブ Blue Archive OST 59.mp3", title: "RE Aoharu" },
-        { file: "ブルーアーカイブ Blue Archive OST 11. Connected Sky.mp3", title: "Connected Sky" }
+        { file: "Blue Archive OST 113. Usagi Flap.mp3", title: "Usagi Flap" },
+        { file: "Blue Archive OST 1. Constant Moderato.mp3", title: "Constant Moderato" },
+        { file: "Blue Archive OST 59.mp3", title: "RE Aoharu" },
+        { file: "Blue Archive OST 11. Connected Sky.mp3", title: "Connected Sky" }
     ];
 
     // Restore audio state from localStorage
